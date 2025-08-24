@@ -46,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -134,9 +134,9 @@ TextureImporter:
       name: GreenNinja_Caminar_Arriba_1
       rect:
         serializedVersion: 2
-        x: 15
+        x: 16
         y: 0
-        width: 17
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -156,9 +156,9 @@ TextureImporter:
       name: GreenNinja_Caminar_Arriba_2
       rect:
         serializedVersion: 2
-        x: 31
+        x: 32
         y: 0
-        width: 17
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -178,9 +178,9 @@ TextureImporter:
       name: GreenNinja_Caminar_Arriba_3
       rect:
         serializedVersion: 2
-        x: 47
+        x: 48
         y: 0
-        width: 17
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -200,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a7cc2e4b843a5e24caa96a2e01edd434
     internalID: 0
     vertices: []
     indices: 
@@ -209,7 +209,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GreenNinja_Caminar_Arriba_0: -3404433239106975596
+      GreenNinja_Caminar_Arriba_1: 5478308109681623916
+      GreenNinja_Caminar_Arriba_2: 5107092458853161184
+      GreenNinja_Caminar_Arriba_3: 7873142754457436896
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
