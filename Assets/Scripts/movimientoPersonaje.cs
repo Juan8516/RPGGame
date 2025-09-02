@@ -5,13 +5,16 @@ public class movimientoPersonaje : MonoBehaviour
 {
     [SerializeField] private float _velocidad;
 
-    private Rigidbody2D _rifgidbody2D;
+    public bool enMovimiento => _direccionMovimiento.magnitude > 0f;
+    public Vector2 DireccionMovimiento => _direccionMovimiento;
+
+    private Rigidbody2D _rigidbody2D;
     private Vector2 _direccionMovimiento;
     private Vector2 _input;
 
     private void Awake()
     {
-        _rifgidbody2D = GetComponent<Rigidbody2D>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -56,6 +59,6 @@ public class movimientoPersonaje : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rifgidbody2D.MovePosition(_rifgidbody2D.position + _direccionMovimiento * _velocidad * Time.fixedDeltaTime);
+        _rigidbody2D.MovePosition(_rigidbody2D.position + _direccionMovimiento * _velocidad * Time.fixedDeltaTime);
     }
 }
