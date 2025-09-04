@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class personajeAnimaciones : MonoBehaviour
 {
+    [SerializeField] private string layerIdle;
+    [SerializeField] private string layerCaminar;
+    
     private Animator _animator;
     private movimientoPersonaje _movimientoPersonaje;
 
@@ -15,20 +18,44 @@ public class personajeAnimaciones : MonoBehaviour
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
         
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if(_movimientoPersonaje.enMovimiento == false)
+        ActualizarLayer();
+
+        if (_movimientoPersonaje.enMovimiento == false)
         {
             return;
         }
 
         _animator.SetFloat(direccionX, _movimientoPersonaje.DireccionMovimiento.x);
         _animator.SetFloat(direccionY, _movimientoPersonaje.DireccionMovimiento.y);
+    }
+
+    private void ActivarLeyer(string nombreLayer)
+    {
+        for(int i = 0; i < _animator.layerCount; i++)
+        {
+            _animator.SetLayerWeight(i, 0f);
+        }
+
+        _animator.SetLayerWeight(_animator.GetLayerIndex(nombreLayer), 1f);
+    }
+
+    private void ActualizarLayer()
+    {
+        if(_movimientoPersonaje.enMovimiento)
+        {
+            ActivarLeyer(layerCaminar);
+        }
+        else
+        {
+            ActivarLeyer(layerIdle);
+        }
     }
 }

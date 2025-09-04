@@ -468,6 +468,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8a579bf9f15744984d76455cfcb118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerIdle: Idle
+  layerCaminar: Caminar
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
