@@ -4,12 +4,14 @@ public class personajeAnimaciones : MonoBehaviour
 {
     [SerializeField] private string layerIdle;
     [SerializeField] private string layerCaminar;
+
     
     private Animator _animator;
     private movimientoPersonaje _movimientoPersonaje;
 
     private readonly int direccionX = Animator.StringToHash(name:"X");
     private readonly int direccionY = Animator.StringToHash(name:"Y");
+    private readonly int derrotado = Animator.StringToHash(name:"Derrotado");
 
     private void Awake()
     {
@@ -57,5 +59,23 @@ public class personajeAnimaciones : MonoBehaviour
         {
             ActivarLeyer(layerIdle);
         }
+    }
+
+    private void personajeDerrotadoRespuesta()
+    {
+        if(_animator.GetLayerWeight(_animator.GetLayerIndex(layerIdle)) == 1f)
+        {
+            _animator.SetBool(derrotado, true);
+        }
+    }
+
+    private void OnEnable()
+    {
+        PersonajeVida.EventoPersonajeDerrotado += personajeDerrotadoRespuesta;
+    }
+
+    private void OnDisable()
+    {
+        PersonajeVida.EventoPersonajeDerrotado -= personajeDerrotadoRespuesta;
     }
 }
