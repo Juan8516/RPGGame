@@ -3,9 +3,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+public class UIManager : Singleton<UIManager>
 {
-    public static UIManager instance;
 
     [Header("config")]
     [SerializeField] private Image vidaPlayer;
@@ -13,17 +12,6 @@ public class UIManager : MonoBehaviour
 
     private float vidaActual;
     private float vidaMax;
-
-    private void Awake()
-    {
-        instance = this;
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
