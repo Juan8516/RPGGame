@@ -71,7 +71,7 @@ public class PersonajeVida: VidaBase
 
     override protected void ActualizarBarraVida(float vidaActual, float vidaMaxima)
     {
-        UIManager.instance.ActualizarVidaPersonaje(vidaActual, vidaMaxima);
+        UIManager.Instance.ActualizarVidaPersonaje(vidaActual, vidaMaxima);
     }
 }
 

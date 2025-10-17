@@ -58,7 +58,7 @@ public class PersonajeMana : MonoBehaviour
 
     private void ActializarBarraMana()
     {
-        UIManager.instance.ActualizarManaPersonaje(ManaActual, manaMax);
+        UIManager.Instance.ActualizarManaPersonaje(ManaActual, manaMax);
     }
 
 }
