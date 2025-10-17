@@ -10,18 +10,22 @@ public class UIManager : Singleton<UIManager>
     [Header("Barra")]
     [SerializeField] private Image vidaPlayer;
     [SerializeField] private Image manaPlayer;
+    [SerializeField] private Image expPlayer;
 
     [Header("Texto")]
     [SerializeField] private TextMeshProUGUI vidaTMP;
     [SerializeField] private TextMeshProUGUI manaTMP;
+    [SerializeField] private TextMeshProUGUI expTMP;
 
     private float vidaActual;
     private float vidaMax;
     private float manaActual;
     private float manaMax;
+    private float expActual;
+    private float expRequeridaNuevoNivel;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         ActualizarUIPersonaje();
     }
@@ -29,10 +33,13 @@ public class UIManager : Singleton<UIManager>
     private void ActualizarUIPersonaje()
     {
         vidaPlayer.fillAmount = Mathf.Lerp(vidaPlayer.fillAmount, vidaActual / vidaMax, 10f * Time.deltaTime);
-        vidaTMP.text = $"{(int)vidaActual} / {(int)vidaMax}";
-
         manaPlayer.fillAmount = Mathf.Lerp(manaPlayer.fillAmount, manaActual / manaMax, 10f * Time.deltaTime);
+        expPlayer.fillAmount = Mathf.Lerp(expPlayer.fillAmount, expActual / expRequeridaNuevoNivel, 10f * Time.deltaTime);
+
+        vidaTMP.text = $"{(int)vidaActual} / {(int)vidaMax}";
         manaTMP.text = $"{(int)manaActual} / {(int)manaMax}";
+        expTMP.text = $"{(expActual / expRequeridaNuevoNivel * 100f):F2}%";
+
     }
 
     public void ActualizarVidaPersonaje(float pVidaActual, float pVidaMax)
@@ -45,5 +52,10 @@ public class UIManager : Singleton<UIManager>
     {
         manaActual = pManaActual;
         manaMax = pManaMax;
+    }
+    public void ActualizarExpPersonaje(float pExpActual, float pExpRequerida)
+    {
+        expActual = pExpActual;
+        expRequeridaNuevoNivel = pExpRequerida;
     }
 }
